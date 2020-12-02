@@ -26,10 +26,4 @@ def home(request):
 def about(request):
     return render(request, 'blog/about.html',{'title':'About'})
 
-def register(request):
-    return render(request, 'blog/about.html',{'title':'Register'})
-
-def login(request):
-    return render(request, 'blog/login.html',{'title':'Login'})
-
 
