@@ -26,9 +26,6 @@ def home(request):
 def about(request):
     return render(request, 'focus/about.html',{'title':'About'})
 
-def register(request):
-    return render(request, 'focus/register.html',{'title':'Register'})
-
 
 def login(request):
     return render(request, 'focus/login.html',{'title':'Login'})
