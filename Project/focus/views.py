@@ -27,8 +27,7 @@ def about(request):
     return render(request, 'focus/about.html',{'title':'About'})
 
 
-def login(request):
-    return render(request, 'focus/login.html',{'title':'Login'})
+
 
 
 
