@@ -57,19 +57,12 @@
     python manage.py migrate
     ```
 
-6. Create a super user.
-    In django if you want to access admin page, you need to create an account first.
-    ```djangotemplate
-    python manage.py createsuperuser
-    ```
-   Then select your username and password or use Team credentials
-
-7. Run server
+6. Run server
     ```bash
     python manage.py runserver
     ```
 
-8. Do the changes and send a PR referencing the changes.
+7. Do the changes and send a PR referencing the changes.
 
 
 ## Contributing/ Adding Features
