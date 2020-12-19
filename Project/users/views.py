@@ -2,6 +2,30 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegistrationForm,UserUpdateForm,ProfileUpdateForm
+from .utils import email_check
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+
+
+def user_login(request):
+    if request.POST:
+        user_cred = request.POST['username']
+        password = request.POST['password']
+        if email_check(user_cred):
+            username = User.objects.get(email=user_cred).username
+            user = authenticate(request, username=username, password=password)
+        else:
+            user = authenticate(request, username=user_cred, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'You have logged into your account!!')
+            return redirect('focus-home')
+
+        else:
+            messages.error(request, 'Invalid Credential')
+            return redirect(request.META['HTTP_REFERER'])
+    else:
+        return render(request, 'users/login.html', {'title': "Login"})
 
 def register(request):
     if request.method == 'POST':
