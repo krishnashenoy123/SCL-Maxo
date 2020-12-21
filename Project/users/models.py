@@ -18,4 +18,4 @@ class Profile(models.Model):
         if img.height > 300 or img.width > 300:
             output_size = (300,300)
             img.thumbnail(output_size)
-            img.save(self.image.path)
+            img.save(self.image.path)<bound method BaseManager.all of <django.contrib.auth.models.UserManager object at 0x7f1945b67cf8>>
