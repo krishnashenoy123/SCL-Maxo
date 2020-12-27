@@ -10,12 +10,12 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
-        if img.height>300 and img.width>300:
+        if img.height > 300 or img.width > 300:
             output_size = (300,300)
             img.thumbnail(output_size)
-            img.save(self.image.path)
+            img.save(self.image.path)<bound method BaseManager.all of <django.contrib.auth.models.UserManager object at 0x7f1945b67cf8>>
