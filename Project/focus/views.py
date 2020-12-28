@@ -26,8 +26,7 @@ def home(request):
 def about(request):
     return render(request, 'focus/about.html',{'title':'About'})
 
-def upload(request):
-    
+
 
 
 
