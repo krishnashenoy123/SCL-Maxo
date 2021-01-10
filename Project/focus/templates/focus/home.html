@@ -1,9 +1,47 @@
 {% extends "focus/base.html" %}
 
 {% block content %}
+<style>
+body{
+  background: #0f0c29;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+  .card-deck{
+     z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 25%;
+  }
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+.card-body{
+ background: #1A2980;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+</style>
+
+
+<body>
+
+<div class="card-deck">
     {% for post in posts %}
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+
+        
+  <div class="card">
+    <div class="card-body">
+
+     <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author }}</a>
@@ -13,11 +51,10 @@
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             
           </div>
-          <input type="text" id="demo" value="{{post.author}}">
-          <script>
-              var yo=document.getElementById("demo");
-              alert(yo);
-          </script>
-        </article>
+          
+    </div>
+  </div>
     {% endfor %}
+  </div>
+  </body>
 {% endblock %}
