@@ -12,7 +12,6 @@ config={
 firebase= pyrebase.initialize_app(config)
 storage=firebase.storage()
 path_local= input("enter name of file")
-path_on_cloud= 'name/images/
 storage.child(path_on_cloud).put(path_local)
 Url=storage.child(path_on_cloud).get_url(None)
 print(Url)
