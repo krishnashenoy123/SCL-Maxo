@@ -1,8 +1,27 @@
 {% extends "focus/base.html" %}
 {% block content %}
+    <style>
+   .content-section{
+ background: #616161;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #9bc5c3, #616161); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+
+   }   
+   body{
+ background: #000046;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+   }
+    </style>
+    <body>
     <h1>This is the inner box
     </h1>
-  <article class="media content-section">
+  <article class="content-section">
     <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
     <div class="media-body">
       <div class="article-metadata">
@@ -113,4 +132,5 @@
         });
     }
     </script>
+  </body>
 {% endblock content %}
