@@ -13,6 +13,11 @@
             <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
             
           </div>
+          <input type="text" id="demo" value="{{post.author}}">
+          <script>
+              var yo=document.getElementById("demo");
+              alert(yo);
+          </script>
         </article>
     {% endfor %}
 {% endblock %}

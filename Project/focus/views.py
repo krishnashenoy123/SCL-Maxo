@@ -96,7 +96,3 @@ def about(request):
 #     storage.child(path_on_cloud).put(path_local)
 #     Url=storage.child(path_on_cloud).get_url(None)
 #     print(Url)
-
-
-
-
