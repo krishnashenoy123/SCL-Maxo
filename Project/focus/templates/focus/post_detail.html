@@ -2,14 +2,9 @@
 {% block content %}
     <style>
    .content-section{
- background: #616161;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #9bc5c3, #616161);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #9bc5c3, #616161); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background-color: #708090;
 
-
-
-
-   }   
+ }
    body{
  background: #000046;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
@@ -36,10 +31,10 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
       </div>
       <h2 class="article-title">{{ object.title }}</h2>
       <p class="article-content">{{ object.content }}</p>
-      
+
     </div>
   </article>
-  <input type="text" id="cool" value="{{ object.title }}">
+  <input type="hidden" id="cool" value="{{ object.title }}">
   <!-- -----------------------------------------------------upload-------------------------------------------------------------- -->
   <div>
     Upload Files<br />
@@ -48,15 +43,23 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
     <p id="uploading"></p>
     <progress value="0" max="100" id="progress"></progress>
     </div>
-    
+
+    <table id="List">
+      <tbody>
+
+      </tbody>
+    </table>
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>
-    
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-storage.js"></script>
-    
+
     <script>
-    
+
+
+
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyAD2CE7gNCg7lUsTFQ-yNPy17lgbcA-lW8",
@@ -70,9 +73,11 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     </script>
-    
+
     <script>
+
     var files = [];
+
     document.getElementById("files").addEventListener("change", function(e) {
       files = e.target.files;
       for (let i = 0; i < files.length; i++) {
@@ -81,6 +86,11 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
     });
     var yo = document.getElementById("cool").value;
     console.log(yo)
+
+
+
+
+
     document.getElementById("send").addEventListener("click", function() {
       //checks if files are selected
       if (files.length != 0) {
@@ -91,7 +101,7 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
           console.log(storage)
           //upload file
           var upload = storage.put(files[i]);
-    
+
           //update progress bar
           upload.on(
             "state_changed",
@@ -100,15 +110,15 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
                 (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
               document.getElementById("progress").value = percentage;
             },
-    
+
             function error() {
               alert("error uploading file");
             },
-    
+
             function complete() {
               document.getElementById(
                 "uploading"
-              ).innerHTML += `${files[i].name} upoaded <br />`;
+              ).innerHTML += `${files[i].name} uploaded <br />`;
             }
           );
         }
@@ -116,21 +126,43 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
         alert("No file chosen");
       }
     });
-    
-    function getFileUrl(filename) {
-      //create a storage reference
-      var storage = firebase.storage().ref(filename);
-    
-      //get file url
-      storage
-        .getDownloadURL()
-        .then(function(url) {
-          console.log(url);
-        })
-        .catch(function(error) {
-          console.log("error encountered");
-        });
-    }
+    // Create a reference under which you want to list
+ // Since you mentioned your images are in a folder,
+    // we'll create a Reference to that folder:
+    var storageRef = firebase.storage().ref();
+
+    $('#List').find('tbody').html('');
+    // Now we get the references of these images
+    var i=0;
+
+storageRef.child(yo+'/').listAll().then(function(result){
+    result.items.forEach(function(downloadURL){
+        // console.log("ImageReference"+imageRef.toString())
+
+        i++;
+        displayImage(i, downloadURL);
+
+    });
+});
+
+function displayImage(row,files){
+    files.getDownloadURL().then(function(url){
+
+        // console.log(url);
+        // document.getElementById("d").innerHTML=url
+
+        let new_html = '';
+        new_html += '<tr>';
+        new_html += '<td>';
+        new_html += row;
+        new_html +='</td>'
+        new_html += '<td>';
+        new_html += '<embed src="'+url+'"   height="300px" width="100%"><a href="'+url+'">download</a>';
+        new_html +='</td>';
+        new_html +='<tr>';
+          $('#List').find('tbody').append(new_html);
+    });
+}
+
     </script>
-  </body>
 {% endblock content %}
