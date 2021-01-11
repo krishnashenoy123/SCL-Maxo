@@ -10,7 +10,6 @@ background-color: #708090;
 background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
    }
     </style>
     <body>
@@ -157,7 +156,7 @@ function displayImage(row,files){
         new_html += row;
         new_html +='</td>'
         new_html += '<td>';
-        new_html += '<embed src="'+url+'"   height="300px" width="100%"><a href="'+url+'">download</a>';
+        new_html += '<embed src="'+url+'"   height="300px" width="300px"><a href="'+url+'>download</a>';
         new_html +='</td>';
         new_html +='<tr>';
           $('#List').find('tbody').append(new_html);
