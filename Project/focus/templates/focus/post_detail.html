@@ -1,20 +1,87 @@
 {% extends "focus/base.html" %}
 {% block content %}
     <style>
-   .content-section{
-background-color: #708090;
-
- }
-   body{
- background: #000046;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  .content-section{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width:500px;
+    display: inline-block;
+    margin-right: 50px;
+  
+}
+   
+  body{
+ background: #3C1874;  /* fallback for old browsers */
+ background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
    }
+  .Upload-part{
+    
+    display: inline-block;
+    margin-left: 50px;
+}
+.article-title{
+  color: #1CB5E0;
+}
+.Upload-part{
+  color: white;
+  }
+* {
+  box-sizing: border-box;
+}
+:root {
+  --background: #E5FFB3;
+  --background-accent: #DBF8A3;
+  --background-accent-2: #BDE66E;
+  --light: #92DE34;
+  --dark: #69BC22;
+  --text: #025600;
+  }
+  #send{
+    
+  display: block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: var(--light);
+  width: 100px;
+  height: 40px;
+  border-radius: 30px;
+  
+  color: var(--text);
+  background-size: 100% 100%;
+  box-shadow: 0 0 0 7px var(--light) inset;
+  }
+  #send:hover{
+     background-image: linear-gradient(
+    145deg,
+    transparent 10%,
+    var(--dark) 10% 20%,
+    transparent 20% 30%,
+    var(--dark) 30% 40%,
+    transparent 40% 50%,
+    var(--dark) 50% 60%,
+    transparent 60% 70%,
+    var(--dark) 70% 80%,
+    transparent 80% 90%,
+    var(--dark) 90% 100%
+  );
+  animation: background 3s linear infinite;
+}
+@keyframes background {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+
+  }
     </style>
     <body>
-    <h1>This is the inner box
-    </h1>
+   
   <article class="content-section">
     <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
     <div class="media-body">
@@ -35,7 +102,7 @@ background: linear-gradient(to right, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, F
   </article>
   <input type="hidden" id="cool" value="{{ object.title }}">
   <!-- -----------------------------------------------------upload-------------------------------------------------------------- -->
-  <div>
+  <div class="Upload-part">
     Upload Files<br />
     <input type="file" id="files" multiple /><br /><br />
     <button id="send">Upload</button>

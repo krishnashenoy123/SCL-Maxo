@@ -5,7 +5,9 @@
     <!doctype html>
 <html lang="en">
   <style>
-    .navbar a:hover{background-color: grey;color:white;}
+    .site-header { overflow:auto;width:100%; background-color: black;;}
+    .navbar a:hover{background-color: rgb(168, 167, 167);color:white;  }
+    .navbar a.active{background-color: green;}
   </style>
   <head>
     <!-- Required meta tags -->
@@ -17,14 +19,14 @@
 
     <link rel="stylesheet" type="text/css"  href="{% static 'focus/main.css' %}" >
     {% if title %}
-       <title>Django Blog {{title}}</title>
+       <title>Hocus Focus {{title}}</title>
     {% else %}
-        <title>Django Blog</title>
+        <title>Hocus Focus</title>
     {% endif %}
 </head>
 <body>
     <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: white;color:blue;">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: white;">
           <div class="container">
             <a class="navbar-brand mr-4" href="{% url 'focus-about' %}" style="color: blue;">Hocus focus</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'focus-home' %}" style="color: blue;">Home</a>
-               <!-- <a class="nav-item nav-link" href="{% url 'focus-about' %}" style="color: blue;">About</a>-->
+              <a class="nav-item nav-link" href="{% url 'focus-about' %}" style="color: blue;">About</a>
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav">
