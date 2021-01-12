@@ -42,7 +42,6 @@
                 {% if user.is_authenticated %}
                   <a class="nav-item nav-link" href="{% url 'logout' %}" style="color: blue;">Logout</a>
                   <a class="nav-item nav-link" href="{% url 'profile' %}" style="color: blue;">Profile</a>
-                  <a class="nav-item nav-link" hreaf="{% url 'focus-post_from' %}" style="color: blue;">New Post</a>
                 {% else %}
                   <a class="nav-item nav-link" href="{% url 'login' %}" style="color: blue;">Login</a>
                   <a class="nav-item nav-link" href="{% url 'register' %}" style="color: blue;">Register</a>
