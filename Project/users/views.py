@@ -62,8 +62,5 @@ def profile(request):
     return render(request,'users/profile.html',context)
 
 
-def displays(request):
-    pass
-    #display all the file in the main firbase directory
-    #when you click on the link it should lead to subdirectories
 
+   

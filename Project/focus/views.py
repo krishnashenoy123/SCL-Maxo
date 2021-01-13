@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 from django.views.generic import (
     ListView,
     DetailView,
@@ -11,12 +12,12 @@ from .models import Post
 # from .models import Files
 import pyrebase
 
-
+@login_required
 def home(request):
     context = {
         'posts': Post.objects.all()
     }
-    return render(request, 'focus/home.html', context)
+    return render(request, 'focus/home.html', context=context)
 
 
 class PostListView(ListView):
@@ -68,31 +69,13 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     return render(request, 'focus/about.html', {'title': 'About'})
 
-# class PostUploadView(DetailView):
-#     model = Files
-#     fields = ['names', 'content']
 
-#     def test_func(self):
-#         post = self.get_object()
-#         if self.request.user == post.author:
-#             return True
-#         return False
+def infopage(request):
+    return render(request, 'focus/info.html', {'title': 'Hocus-focus'})
 
-#     config={
-#             'apiKey': "AIzaSyDLzBjNqg37fRiCBClXzamhjdVN2jr4nX8",
-#             'authDomain': "fir-9f329.firebaseapp.com",
-#             'databaseURL':"https://fir-9f329.firebaseio.com",
-#             'projectId': "fir-9f329",
-#             'storageBucket': "fir-9f329.appspot.com",
-#             'messagingSenderId': "1022042387286",
-#             'appId': "1:1022042387286:web:efbafb88c136023dd0dcf7",
-#             'measurementId': "G-F8NR0833P8"
-#             }
-#     firebase= pyrebase.initialize_app(config)
-#     storage=firebase.storage()
-#     path_local= names
-    
-#     path_on_cloud = post.id+'/'
-#     storage.child(path_on_cloud).put(path_local)
-#     Url=storage.child(path_on_cloud).get_url(None)
-#     print(Url)
+def profiledetail(request):
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request,'users/profiledetail.html',context=context)
+
