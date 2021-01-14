@@ -1,4 +1,4 @@
-# Urja-SCL-maxo
+# Urja Hocus-Focus
 
 #### Project Description
 
