@@ -1,11 +1,17 @@
 {% extends "focus/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
+<style>
+    body{
+        background-color: #9970f7;
+        
+    }
+</style>
+    <div class="content-section" >
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">focus Post</legend>
+                <legend class="border-bottom mb-4" style="font-variant: small-caps;">focus Post</legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
