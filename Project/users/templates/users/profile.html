@@ -1,7 +1,12 @@
 {% extends "focus/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-section">
+<style>
+    body{
+background-color:rgb(99, 190, 137);
+    }
+</style>
+    <div class="content-section" >
         <div class="media">
         <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
