@@ -779,23 +779,23 @@
 <body>
 	<!-- main -->
 	<div class="main-w3layouts wrapper">
-		<h1>SignUp Form</h1>
+		<!--<h1 style="text-transform: capitalize;font-variant: small-caps; text-shadow: 2px 2px black">Signup form</h1>-->
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<div class="Content-section">
-                    <form method="POST" style="color:white;">
+                    <form method="POST" style="color:whitesmoke;font-family:Georgia ">
                         {% csrf_token %}
                         <fieldset class="form-group">
-                            <legend class="border-bottom mb-4">Join today!</legend>
+                            <legend class="border-bottom mb-4" style="font-variant: small-caps;font-weight: bold;color:rgb(240, 167, 10) ;font-size:large;margin-bottom: 5px;text-align: center;">Join today!</legend>
                             {{ form|crispy }}
                         </fieldset>
                         <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit">Sign up</button>
+                            <button class="btn btn-outline-info" type="submit" style="width: 80px;height:30px ">Sign up</button>
                         </div>
                     </form>
                     <div class="border-top pt-3">
-                        <small class="text-muted">
-                            Need an account? <a class="ml-2" href="{% url 'login' %}"></a>">Sign in</a>
+                        <small class="text-muted" style="color: whitesmoke;">
+                            Already have an account? <a class="ml-2" href="{% url 'login' %}" style="color:rgb(177, 202, 202) ;text-decoration: underline;">Sign in</a>
                         </small>
                     </div>
                 </div>
