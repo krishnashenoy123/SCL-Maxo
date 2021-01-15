@@ -24,7 +24,7 @@ This app is developed especially for students, where teachers can upload the not
 * Upload media
   - Upload required files to the particular rooms
 
-## Resources  
+## Technologies used 
 1. Backend Framework: **Django** 
 2. Front-end Framework: **Bootstrap**
 3. Database used: **Sqlite**
