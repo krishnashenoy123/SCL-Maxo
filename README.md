@@ -1,9 +1,34 @@
-# Urja Hocus-Focus
 
-#### Project Description
 
-1. Backend Framework: **Django**
+<h1 align="center">
+  <br>
+  <a href="#"><img src="Project\media\Images\Hocus Focus logo.png" alt="Markdownify" width="200"></a>
+  <br>
+Hocus-Focus
+  <br>
+</h1>
+
+<p align="center">
+  <a href="#"><img alt="GitHub issues" src="https://img.shields.io/badge/URL-website-blueviolet?logo=Python=for-the-badge" title="Live Demo"></a>
+  </p>
+
+
+## Project Description
+All about the project
+
+### Key Features   
+* LivePreview - Make changes, See changes
+  - Instantly see what your Markdown documents look like in HTML as you create them.
+* Sync Scrolling
+  - While you type, LivePreview will automatically scroll to the current location you're editing.
+* GitHub Flavored Markdown  
+
+## Resources  
+1. Backend Framework: **Django** 
 2. Front-end Framework: **Bootstrap**
+3. Database used: **Sqlite**
+
+
 
 ## Installation
 
@@ -64,6 +89,6 @@
 
 7. Do the changes and send a PR referencing the changes.
 
-
 ## Contributing/ Adding Features
-   Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change in the project.
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change in the project.
