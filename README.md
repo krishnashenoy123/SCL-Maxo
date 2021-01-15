@@ -14,14 +14,15 @@ Hocus-Focus
 
 
 ## Project Description
-All about the project
+The user needs to sign up a valid email id , followed by creating cards where the user can upload files(images, pdf, doc) and retrieve. Anyone who have an account can access the notes and make use of it.
+
+This app is developed especially for students, where teachers can upload the notes and the students can access them .
 
 ### Key Features   
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
+* Multiple Rooms - Make changes, See changes
+  - Create multiple rooms for different courses/subjects
+* Upload media
+  - Upload required files to the particular rooms
 
 ## Resources  
 1. Backend Framework: **Django** 

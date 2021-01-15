@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="shortcut icon" href="static/images/Hocus Focus logo.png" />
+  <link rel="shortcut icon" href="static/images/Hocus Focus logo.png" size="128x128" >
   <style>
     .site-header { overflow:auto;width:100%; background-color: black;}
     .navbar a:hover{background-color: rgb(168, 167, 167);color:white;  }
@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" type="text/css"  href="{% static 'focus/main.css' %}" >
     {% if title %}
-       <title>Hocus Focus {{title}}</title>
+       <title>{{title}}</title>
     {% else %}
         <title>Hocus Focus</title>
     {% endif %}
